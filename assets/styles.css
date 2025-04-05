@@ -1,0 +1,312 @@
+/* assets/styles.css */
+
+/* Basic reset/setup */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
+    line-height: 1.6; /* Improved readability */
+}
+
+/* --- Header --- */
+.header-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradient background */
+    color: white;
+    padding: 30px 40px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-bottom: 5px solid #5a67d8; /* Accent border */
+    margin-bottom: 30px; /* Add space below header */
+}
+.header-container h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.header-container p {
+    margin: 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* --- Filter Container --- */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 25px;
+    padding: 25px 40px;
+    margin: 0 40px 30px 40px; /* Adjust margin */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+}
+.filter-item {
+    flex: 1; /* Allow items to grow/shrink */
+    min-width: 250px; /* Minimum width before wrapping */
+}
+.filter-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Slightly bolder */
+    color: #4a5568; /* Darker grey */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+/* Style dcc.Dropdown */
+.Select-control {
+    border-radius: 5px !important;
+    border: 1px solid #cbd5e0 !important; /* Lighter border */
+}
+.Select--multi .Select-value {
+     background-color: #e2e8f0 !important; /* Lighter grey-blue for selected items */
+     border-radius: 3px !important;
+     color: #2d3748 !important;
+     border: none !important;
+     margin: 2px !important;
+     padding: 3px 6px !important; /* Adjust padding */
+}
+.Select-placeholder{
+    color: #a0aec0 !important; /* Lighter placeholder text */
+}
+.VirtualizedSelectOption {
+    font-size: 0.95em; /* Slightly smaller dropdown options */
+}
+
+/* --- KPI Container --- */
+.kpi-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-around;
+    gap: 25px;
+    padding: 0 40px 20px 40px; /* Adjust padding */
+}
+.kpi-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    text-align: center;
+    flex: 1; /* Equal width */
+    min-width: 200px; /* Min width before wrap */
+    border-top: 5px solid; /* Colored top border */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.kpi-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #718096; /* Medium grey */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.kpi-card p {
+    font-size: 2.2em; /* Larger number */
+    font-weight: 700; /* Bolder */
+    margin: 0;
+    color: #2d3748; /* Dark grey-blue */
+}
+/* Specific KPI border colors */
+.kpi-sales { border-top-color: #667eea; } /* Purple-Blue */
+.kpi-orders { border-top-color: #48bb78; } /* Green */
+.kpi-avg-value { border-top-color: #f6ad55; } /* Orange */
+
+
+/* --- Graph Section Styling (Using Flexbox Rows) --- */
+/* Container for all graph rows */
+.all-graphs-container {
+    padding: 0 40px; /* Horizontal padding for the graph section */
+}
+/* Style for each row of graphs */
+.graph-row {
+    display: flex;          /* Arrange graphs horizontally */
+    flex-wrap: wrap;        /* Allow wrapping on smaller screens */
+    gap: 25px;              /* Space between graphs in the row */
+    margin-bottom: 25px;    /* Space below each row */
+}
+/* Ensure the last row doesn't have extra bottom margin */
+.graph-row:last-child {
+    margin-bottom: 0;
+}
+/* Style for individual graph containers within a row */
+.graph-item {
+    flex: 1 1 45%; /* Grow, Shrink, Basis (start at ~45% width) */
+    min-width: 350px; /* Minimum width before wrapping - adjust as needed */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s ease-in-out;
+    /* Ensure graphs don't overflow their container unnecessarily */
+    overflow: hidden;
+}
+.graph-item:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+/* Ensure Plotly graphs resize correctly within the flex item */
+.graph-item .js-plotly-plot .plotly,
+.graph-item .js-plotly-plot .main-svg {
+     width: 100% !important;
+     height: 100% !important;
+}
+
+
+/* --- Chatbot Enhancements --- */
+.chatbot-container {
+     padding: 35px; /* Increase padding */
+     background-color: #ffffff;
+     border-radius: 12px; /* Slightly more rounded */
+     margin: 30px 40px;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+     border-top: 4px solid #6366f1; /* Accent color top border (Indigo) */
+}
+.chatbot-container h3 {
+    margin-top: 0;
+    color: #374151; /* Darker Grey */
+    text-align: center;
+    margin-bottom: 30px; /* More space below heading */
+    font-weight: 600;
+    font-size: 1.4em; /* Slightly larger heading */
+}
+/* Wrapper for input and button for positioning */
+.input-wrapper {
+    position: relative; /* Needed for absolute positioning of the button */
+    margin-bottom: 20px; /* Space below input area */
+}
+#user-input {
+    width: 100%; /* Take full width */
+    height: 70px;
+    padding: 12px 60px 12px 15px; /* Right padding to avoid text under button */
+    border: 1px solid #d1d5db; /* Grey border */
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 1em;
+    color: #374151;
+    background-color: #f9fafb; /* Very light grey background */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    line-height: 1.6; /* Match body line-height */
+}
+#user-input:focus {
+    outline: none;
+    border-color: #6366f1; /* Highlight border on focus */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Subtle focus ring */
+}
+#send-btn {
+    position: absolute; /* Position relative to .input-wrapper */
+    right: 8px;      /* Distance from right edge */
+    top: 50%;        /* Center vertically */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    padding: 8px 15px; /* Button padding */
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); /* Indigo/Purple Gradient */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em; /* Slightly larger icon/text */
+    font-weight: 500;
+    transition: opacity 0.3s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    line-height: 1; /* Ensure text/emoji align well */
+}
+#send-btn:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2); /* Shadow on hover */
+}
+/* Response Area Styling */
+#chat-response {
+    margin-top: 25px; /* Space above response */
+    padding: 18px 20px; /* More padding */
+    background-color: #f3f4f6; /* Light grey background */
+    border-radius: 8px;
+    color: #1f2937; /* Darker text for response */
+    min-height: 50px;
+    border: 1px solid #e5e7eb; /* Subtle border */
+    line-height: 1.7; /* Better readability */
+    white-space: pre-wrap; /* Preserve line breaks from Markdown */
+    word-wrap: break-word; /* Prevent long unbroken strings from overflowing */
+}
+/* Style for bold text within the response */
+#chat-response strong {
+    color: #4f46e5; /* Indigo color for emphasis */
+    font-weight: 600;
+}
+/* Style for lists within the response (if Markdown renders them) */
+#chat-response ul,
+#chat-response ol {
+    padding-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+#chat-response li {
+    margin-bottom: 5px;
+}
+/* Style for paragraphs within the response (Markdown often wraps lines in <p>) */
+#chat-response p {
+     margin-bottom: 0.5em; /* Add space between paragraphs */
+}
+#chat-response p:last-child {
+     margin-bottom: 0; /* No extra space after the last paragraph */
+}
+
+
+/* --- Utilities --- */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e2e8f0; /* Lighter separator */
+    margin: 40px 0; /* Increase spacing around separators */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px 20px;
+    }
+    .header-container h1 {
+        font-size: 2em;
+    }
+     .filter-container, .kpi-container, .all-graphs-container, .chatbot-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .filter-item {
+        min-width: 100%; /* Stack filters vertically */
+    }
+    .kpi-card {
+        min-width: calc(50% - 15px); /* Two KPIs per row */
+        padding: 15px;
+    }
+    .kpi-card p {
+        font-size: 1.8em;
+    }
+    .graph-item {
+        min-width: 90%; /* Allow graphs to take more width before stacking */
+        flex-basis: 100%; /* Stack graphs in rows on smaller screens */
+    }
+    .chatbot-container {
+        padding: 25px;
+    }
+    #user-input {
+        padding: 10px 55px 10px 12px; /* Adjust padding for smaller button */
+        height: 60px;
+    }
+    #send-btn {
+        padding: 6px 12px;
+        font-size: 1em;
+        right: 6px;
+    }
+    #chat-response {
+        padding: 15px;
+    }
+}
